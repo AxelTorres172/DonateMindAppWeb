@@ -107,6 +107,17 @@
     });
   </script>
 
+  <script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('./service-worker.js')
+        .then(() => console.log('Service Worker registrado con éxito'))
+        .catch((error) => console.log('Error al registrar el Service Worker:', error));
+    });
+  }
+</script>
+
+
   <!-- Firebase v8 (si usas el form) -->
   <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
