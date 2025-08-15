@@ -1,17 +1,14 @@
-const CACHE_NAME = 'suenos-cache-v1';
+const CACHE_NAME = 'suenos-cache-v2';
 const urlsToCache = [
   './',
   './index.html',
+  './Js/main.js',
   './css/styles.css',
-  './src/js/main.js',
-  './Js/firebase.js',
-  './Js/usuarioForm.js',
   './manifest.json',
   './assets/icon-192.png',
   './assets/icon-512.png'
 ];
 
-// Instalar y cachear
 self.addEventListener('install', (event) => {
   event.waitUntil(
     caches.open(CACHE_NAME).then((cache) => cache.addAll(urlsToCache))
@@ -19,21 +16,19 @@ self.addEventListener('install', (event) => {
   self.skipWaiting();
 });
 
-// Activar y limpiar cachés viejos
 self.addEventListener('activate', (event) => {
   event.waitUntil(
-    caches.keys().then((cacheNames) =>
-      Promise.all(
-        cacheNames.map((name) => (name !== CACHE_NAME ? caches.delete(name) : undefined))
-      )
+    caches.keys().then(keys =>
+      Promise.all(keys.map(k => k !== CACHE_NAME && caches.delete(k)))
     )
   );
   self.clients.claim();
 });
 
-// Respuesta desde caché primero, si no, red
 self.addEventListener('fetch', (event) => {
   event.respondWith(
-    caches.match(event.request).then((res) => res || fetch(event.request))
+    caches.match(event.request, { ignoreSearch: true }).then((cached) => {
+      return cached || fetch(event.request);
+    })
   );
 });
