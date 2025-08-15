@@ -5,11 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="apple-mobile-web-app-capable" content="yes">
   <title>Sueños Luminosos</title>
-  <link rel="stylesheet" href="/css/styles.css">
-  <script src="/src/js/main.js" defer></script>
-  <link rel="manifest" href="/manifest.json">
-<meta name="theme-color" content="#222222">
-
+  <link rel="stylesheet" href="css/styles.css">
+  <script src="src/js/main.js" defer></script>
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#222222">
 </head>
 <body>
   <header>
@@ -28,21 +27,23 @@
   <main>
     <section id="home">
       <h1>Bienvenidos a Onio</h1>
-      <p>En esta historia acompañarás a William, un pequeño niño atrapado en su propia mente, donde sus temores han tomado forma y control. Con la ayuda de sus amigos —manifestaciones de su conciencia—, William deberá enfrentarse a peligrosos enemigos y recorrer mundos llenos de desafíos para alcanzar y detener al miedo que lo mantiene prisionero.
-Cada batalla es un paso más para recuperar su libertad y vencer aquello que lo atormenta desde dentro.</p>
+      <p>
+        En esta historia acompañarás a William, un pequeño niño atrapado en su propia mente, donde sus temores han tomado forma y control. Con la ayuda de sus amigos —manifestaciones de su conciencia—, William deberá enfrentarse a peligrosos enemigos y recorrer mundos llenos de desafíos para alcanzar y detener al miedo que lo mantiene prisionero.
+        Cada batalla es un paso más para recuperar su libertad y vencer aquello que lo atormenta desde dentro.
+      </p>
     </section>
-
-    
 
     <section id="about">
       <h2>Sobre Donate Mind</h2>
-      <p>En Donate Mind no solo jugamos… ¡cambiamos el juego! 🎮
-Creamos mundos llenos de acción y aventuras que, además de divertir, despiertan conciencia sobre los trastornos mentales.
-Aquí, cada partida es una oportunidad para aprender, empatizar y ayudar.</p>
+      <p>
+        En Donate Mind no solo jugamos… ¡cambiamos el juego! 🎮
+        Creamos mundos llenos de acción y aventuras que, además de divertir, despiertan conciencia sobre los trastornos mentales.
+        Aquí, cada partida es una oportunidad para aprender, empatizar y ayudar.
+      </p>
       <button id="installBtn" style="display: none;">📲 Instalar App</button>
     </section>
 
-    <section id="Contact">
+    <section id="contact">
       <h2>Contáctanos</h2>
       <form id="usuarioForm">
         <label for="nombre">Nombre:</label>
@@ -75,8 +76,6 @@ Aquí, cada partida es una oportunidad para aprender, empatizar y ayudar.</p>
     </section>
   </main>
 
-  
-
   <footer>
     <p>&copy; 2025 Sueños Luminosos</p>
   </footer>
@@ -96,12 +95,13 @@ Aquí, cada partida es una oportunidad para aprender, empatizar y ayudar.</p>
     });
   </script>
 
-  
-    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
-    <script src="/firebase.js"></script>
-    <script src="/usuarioForm.js"></script>
+  <!-- Firebase -->
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
 
+  <!-- Scripts locales -->
+  <script src="Js/firebase.js"></script>
+  <script src="Js/usuarioForm.js"></script>
 </body>
 </html>
