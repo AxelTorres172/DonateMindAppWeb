@@ -1,13 +1,12 @@
 const CACHE_NAME = 'suenos-cache-v1';
 const urlsToCache = [
-  '/',
-  '/index.html',
-  '/src/js/main.js',
-  '/src/css/styles.css',
-  '/manifest.json',
-  '/assets/icon-192.png',
-  '/assets/icon-512.png',
-  // Puedes agregar aquí más archivos si los necesitas
+  'index.html',
+  'src/js/main.js',
+  'css/styles.css',
+  'manifest.json',
+  'assets/icon-192.png',
+  'assets/icon-512.png'
+  // Agrega aquí más archivos si los necesitas
 ];
 
 // Instalar y cachear los archivos
@@ -19,7 +18,7 @@ self.addEventListener('install', event => {
       return cache.addAll(urlsToCache);
     })
   );
-  self.skipWaiting(); // Forza la activación inmediata
+  self.skipWaiting();
 });
 
 // Activar y limpiar cachés viejos
@@ -37,7 +36,7 @@ self.addEventListener('activate', event => {
       );
     })
   );
-  self.clients.claim(); // Controlar páginas inmediatamente
+  self.clients.claim();
 });
 
 // Interceptar solicitudes y responder con caché si existe
