@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <title>Sueños Luminosos</title>
+  <link rel="stylesheet" href="/css/styles.css">
+  <script src="/src/js/main.js" defer></script>
+  <link rel="manifest" href="/manifest.json">
+<meta name="theme-color" content="#222222">
+
+</head>
+<body>
+  <header>
+    <nav class="hamburger-menu">
+      <input type="checkbox" id="menu-toggle" hidden />
+      <label for="menu-toggle" class="menu-icon">&#9776;</label>
+      <ul class="menu">
+        <li><a href="#home">Inicio</a></li>
+        <li><a href="#about">Sobre Nosotros</a></li>
+        <li><a href="#contact">Registro</a></li>
+        <li><a href="#donate">Donar</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section id="home">
+      <h1>Bienvenidos a Onio</h1>
+      <p>En esta historia acompañarás a William, un pequeño niño atrapado en su propia mente, donde sus temores han tomado forma y control. Con la ayuda de sus amigos —manifestaciones de su conciencia—, William deberá enfrentarse a peligrosos enemigos y recorrer mundos llenos de desafíos para alcanzar y detener al miedo que lo mantiene prisionero.
+Cada batalla es un paso más para recuperar su libertad y vencer aquello que lo atormenta desde dentro.</p>
+    </section>
+
+    
+
+    <section id="about">
+      <h2>Sobre Donate Mind</h2>
+      <p>En Donate Mind no solo jugamos… ¡cambiamos el juego! 🎮
+Creamos mundos llenos de acción y aventuras que, además de divertir, despiertan conciencia sobre los trastornos mentales.
+Aquí, cada partida es una oportunidad para aprender, empatizar y ayudar.</p>
+      <button id="installBtn" style="display: none;">📲 Instalar App</button>
+    </section>
+
+    <section id="Contact">
+      <h2>Contáctanos</h2>
+      <form id="usuarioForm">
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" required><br>
+
+        <label for="correo">Correo:</label>
+        <input type="email" id="correo" required><br>
+
+        <label for="numero">Número de Teléfono:</label>
+        <input type="tel" id="numero" required><br>
+
+        <label for="edad">Edad:</label>
+        <input type="number" id="edad" required><br>
+
+        <label for="fechaRegistro">Fecha de Registro:</label>
+        <input type="date" id="fechaRegistro" required><br>
+
+        <button type="submit">Registrar Usuario</button>
+      </form>
+    </section>
+
+    <section id="donate">
+      <h2>Haz una Donación</h2>
+      <form>
+        <input type="text" name="nombre" placeholder="Tu nombre" required />
+        <input type="number" name="monto" placeholder="Monto (MXN)" required />
+        <button type="submit">Donar</button>
+        <button style="display: none;">📲 Instalar App</button>
+      </form>
+    </section>
+  </main>
+
+  
+
+  <footer>
+    <p>&copy; 2025 Sueños Luminosos</p>
+  </footer>
+
+  <nav class="bottom-nav">
+    <a href="#home">Inicio</a>
+    <a href="#about">Nosotros</a>
+    <a href="#donate">Donar</a>
+    <a href="#contact">Registro</a>
+  </nav>
+
+  <script>
+    document.querySelectorAll('.menu a').forEach(link => {
+      link.addEventListener('click', () => {
+        document.getElementById('menu-toggle').checked = false;
+      });
+    });
+  </script>
+
+  
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+    <script src="/firebase.js"></script>
+    <script src="/usuarioForm.js"></script>
+
+</body>
+</html>
