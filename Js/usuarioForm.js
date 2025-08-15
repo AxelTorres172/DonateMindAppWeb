@@ -11,9 +11,10 @@ document.getElementById('usuarioForm').addEventListener('submit', function(e) {
     return;
   }
 
-  function pad(n){return n<10? '0'+n : ''+n;}
+  function pad(n) { return n < 10 ? '0' + n : '' + n; }
   const d = new Date();
-  const fechaRegistro = d.getFullYear() + '-' + pad(d.getMonth()+1) + '-' + pad(d.getDate()) + ' ' + pad(d.getHours()) + ':' + pad(d.getMinutes()) + ':' + pad(d.getSeconds());
+  const fechaRegistro = d.getFullYear() + '-' + pad(d.getMonth() + 1) + '-' + pad(d.getDate()) +
+    ' ' + pad(d.getHours()) + ':' + pad(d.getMinutes()) + ':' + pad(d.getSeconds());
 
   const data = {
     Correo: correo,
@@ -23,11 +24,9 @@ document.getElementById('usuarioForm').addEventListener('submit', function(e) {
     Numero: String(numero)
   };
 
-  // Realtime Database: /Usuarios/<pushId>
   rtdb.ref('Usuarios').push(data)
     .then(() => {
       alert('Usuario registrado correctamente.');
-      // opcional: limpiar formulario
       document.getElementById('usuarioForm').reset();
     })
     .catch((error) => {
