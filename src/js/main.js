@@ -1,5 +1,6 @@
 let deferredPrompt;
 
+// Escucha el evento para mostrar el botón de instalación
 window.addEventListener('beforeinstallprompt', (e) => {
   e.preventDefault();
   deferredPrompt = e;
@@ -24,9 +25,10 @@ window.addEventListener('beforeinstallprompt', (e) => {
   }
 });
 
+// Registrar Service Worker
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', () => {
-    navigator.serviceWorker.register('Js/service-worker.js') // 🔹 ruta relativa y con mayúscula
+    navigator.serviceWorker.register('./service-worker.js')
       .then(reg => console.log('Service Worker registrado ✔️', reg))
       .catch(err => console.warn('Error al registrar Service Worker ❌', err));
   });
