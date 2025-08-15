@@ -1,29 +1,34 @@
-document.getElementById('usuarioForm').addEventListener('submit', function(e) {
+document.getElementById('usuarioForm').addEventListener('submit', function (e) {
   e.preventDefault();
 
-  const correo = document.getElementById('correo').value.trim();
-  const edad = document.getElementById('edad').value.trim();
   const nombre = document.getElementById('nombre').value.trim();
+  const correo = document.getElementById('correo').value.trim();
   const numero = document.getElementById('numero').value.trim();
+  const edad = document.getElementById('edad').value.trim();
 
-  if (!correo || !edad || !nombre || !numero) {
+  // Validar campos
+  if (!nombre || !correo || !numero || !edad) {
     alert('Por favor, completa todos los campos antes de registrar.');
     return;
   }
 
-  function pad(n) { return n < 10 ? '0' + n : '' + n; }
+  // Fecha y hora actuales formateadas
+  function pad(n) {
+    return n < 10 ? '0' + n : '' + n;
+  }
   const d = new Date();
-  const fechaRegistro = d.getFullYear() + '-' + pad(d.getMonth() + 1) + '-' + pad(d.getDate()) +
-    ' ' + pad(d.getHours()) + ':' + pad(d.getMinutes()) + ':' + pad(d.getSeconds());
+  const fechaRegistro = `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())} ${pad(d.getHours())}:${pad(d.getMinutes())}:${pad(d.getSeconds())}`;
 
+  // Datos a guardar
   const data = {
-    Correo: correo,
-    Edad: String(edad),
-    FechaRegistro: fechaRegistro,
     Nombre: nombre,
-    Numero: String(numero)
+    Correo: correo,
+    Numero: String(numero),
+    Edad: String(edad),
+    FechaRegistro: fechaRegistro
   };
 
+  // Guardar en Firebase
   rtdb.ref('Usuarios').push(data)
     .then(() => {
       alert('Usuario registrado correctamente.');
