@@ -2,16 +2,19 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
   <title>Sueños Luminosos</title>
+
+  <!-- Manifest + tema -->
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#222222">
 
   <!-- Estilos -->
   <link rel="stylesheet" href="css/styles.css">
 
-  <!-- Manifest y tema -->
-  <link rel="manifest" href="manifest.json">
-  <meta name="theme-color" content="#222222">
+  <!-- App logic -->
+  <script src="Js/main.js" defer></script>
 </head>
 <body>
   <header>
@@ -43,7 +46,15 @@
         Creamos mundos llenos de acción y aventuras que, además de divertir, despiertan conciencia sobre los trastornos mentales.
         Aquí, cada partida es una oportunidad para aprender, empatizar y ayudar.
       </p>
-      <button id="installBtn" style="display: none;">📲 Instalar App</button>
+
+      <!-- Botón Android/desktop (se muestra cuando beforeinstallprompt dispara) -->
+      <button id="installBtn" style="display:none">📲 Instalar App</button>
+
+      <!-- Aviso iOS (Safari no dispara beforeinstallprompt) -->
+      <div id="iosInstallTip" style="display:none; margin-top:12px; font-size:0.95rem;">
+        En iPhone/iPad: abre el menú <strong>Compartir</strong> y elige
+        <strong>Añadir a pantalla de inicio</strong>.
+      </div>
     </section>
 
     <section id="contact">
@@ -87,22 +98,21 @@
   </nav>
 
   <script>
+    // cerrar menú hamburguesa al navegar
     document.querySelectorAll('.menu a').forEach(link => {
       link.addEventListener('click', () => {
-        document.getElementById('menu-toggle').checked = false;
+        const toggle = document.getElementById('menu-toggle');
+        if (toggle) toggle.checked = false;
       });
     });
   </script>
 
-  <!-- Firebase SDK -->
+  <!-- Firebase v8 (si usas el form) -->
   <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
 
-  <!-- Scripts locales -->
+  <!-- Scripts locales que dependen de Firebase -->
   <script src="Js/firebase.js"></script>
   <script src="Js/usuarioForm.js"></script>
-
-  <!-- PWA principal -->
-  <script src="src/js/main.js" defer></script>
 </body>
 </html>
