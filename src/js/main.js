@@ -1,7 +1,6 @@
 let deferredPrompt;
 
 window.addEventListener('beforeinstallprompt', (e) => {
-  // Previene que se muestre el prompt automáticamente
   e.preventDefault();
   deferredPrompt = e;
 
@@ -10,8 +9,8 @@ window.addEventListener('beforeinstallprompt', (e) => {
     installBtn.style.display = 'inline-block';
 
     installBtn.addEventListener('click', () => {
-      installBtn.style.display = 'none'; // Oculta el botón
-      deferredPrompt.prompt(); // Muestra el prompt de instalación
+      installBtn.style.display = 'none';
+      deferredPrompt.prompt();
 
       deferredPrompt.userChoice.then((choiceResult) => {
         if (choiceResult.outcome === 'accepted') {
@@ -27,10 +26,8 @@ window.addEventListener('beforeinstallprompt', (e) => {
 
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', () => {
-    navigator.serviceWorker.register('/service-worker.js')
+    navigator.serviceWorker.register('Js/service-worker.js') // 🔹 ruta relativa y con mayúscula
       .then(reg => console.log('Service Worker registrado ✔️', reg))
       .catch(err => console.warn('Error al registrar Service Worker ❌', err));
   });
 }
-
-
