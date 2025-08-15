@@ -6,29 +6,17 @@ document.getElementById('usuarioForm').addEventListener('submit', function (e) {
   const numero = document.getElementById('numero').value.trim();
   const edad = document.getElementById('edad').value.trim();
 
-  // Validar campos
   if (!nombre || !correo || !numero || !edad) {
     alert('Por favor, completa todos los campos antes de registrar.');
     return;
   }
 
-  // Fecha y hora actuales formateadas
-  function pad(n) {
-    return n < 10 ? '0' + n : '' + n;
-  }
+  const pad = (n) => (n < 10 ? '0' + n : '' + n);
   const d = new Date();
   const fechaRegistro = `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())} ${pad(d.getHours())}:${pad(d.getMinutes())}:${pad(d.getSeconds())}`;
 
-  // Datos a guardar
-  const data = {
-    Nombre: nombre,
-    Correo: correo,
-    Numero: String(numero),
-    Edad: String(edad),
-    FechaRegistro: fechaRegistro
-  };
+  const data = { Nombre: nombre, Correo: correo, Numero: String(numero), Edad: String(edad), FechaRegistro: fechaRegistro };
 
-  // Guardar en Firebase
   rtdb.ref('Usuarios').push(data)
     .then(() => {
       alert('Usuario registrado correctamente.');
