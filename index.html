@@ -34,8 +34,7 @@
     <section id="home">
       <h1>Bienvenidos a Onio</h1>
       <p>
-        En esta historia acompañarás a William, un pequeño niño atrapado en su propia mente, donde sus temores han tomado forma y control. Con la ayuda de sus amigos —manifestaciones de su conciencia—, William deberá enfrentarse a peligrosos enemigos y recorrer mundos llenos de desafíos para alcanzar y detener al miedo que lo mantiene prisionero.
-        Cada batalla es un paso más para recuperar su libertad y vencer aquello que lo atormenta desde dentro.
+        En esta historia acompañarás a William, un pequeño niño atrapado en su propia mente, donde sus temores han tomado forma y control...
       </p>
     </section>
 
@@ -43,8 +42,6 @@
       <h2>Sobre Donate Mind</h2>
       <p>
         En Donate Mind no solo jugamos… ¡cambiamos el juego! 🎮
-        Creamos mundos llenos de acción y aventuras que, además de divertir, despiertan conciencia sobre los trastornos mentales.
-        Aquí, cada partida es una oportunidad para aprender, empatizar y ayudar.
       </p>
 
       <!-- Botón Android/desktop (se muestra cuando beforeinstallprompt dispara) -->
@@ -97,8 +94,8 @@
     <a href="#contact">Registro</a>
   </nav>
 
+  <!-- Cerrar menú hamburguesa al navegar -->
   <script>
-    // cerrar menú hamburguesa al navegar
     document.querySelectorAll('.menu a').forEach(link => {
       link.addEventListener('click', () => {
         const toggle = document.getElementById('menu-toggle');
@@ -107,22 +104,22 @@
     });
   </script>
 
+  <!-- Registro del Service Worker -->
   <script>
   if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => {
-      navigator.serviceWorker.register('./service-worker.js')
-        .then(() => console.log('Service Worker registrado con éxito'))
-        .catch((error) => console.log('Error al registrar el Service Worker:', error));
+      navigator.serviceWorker.register('service-worker.js')
+        .then(reg => console.log('✔ Service Worker registrado en:', reg.scope))
+        .catch(err => console.warn('❌ Error al registrar el Service Worker:', err));
     });
   }
-</script>
+  </script>
 
-
-  <!-- Firebase v8 (si usas el form) -->
+  <!-- Firebase v8 -->
   <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
 
-  <!-- Scripts locales que dependen de Firebase -->
+  <!-- Scripts locales -->
   <script src="Js/firebase.js"></script>
   <script src="Js/usuarioForm.js"></script>
 </body>
